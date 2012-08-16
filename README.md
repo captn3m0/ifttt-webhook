@@ -8,7 +8,13 @@ A webhook middleware for the ifttt.com service
 2. You can use any username/password combination you want. ifttt will accept the authentication irrespective of what details you enter here. These details will be passed along by the webhook as well, so that you may use these as your authentication medium, perhaps.
 3. Create a recipe in ifttt which would post to your "wordpress channel". In the "Tags" field, use the webhook url that you want to use.
 
+![Connecting to ifttt-webhook](http://i.imgur.com/RA0Jb.png "You can type in any username/password you want")
+
+Any username/password combination will be accepted, and passed through to the webhook url. A blank password is considered valid, but ifttt invalidates a blank username.
+
 ![Screenshot of a channel](http://i.imgur.com/5FaU1.png "Sample Channel for use as a webhook")
+
+Make sure that the url you specify accepts POST requests. The url is only picked up from the tags field, and all other fields are passed through to the webhook url.
 
 #How It Works
 ifttt uses wordpress-xmlrpc to communicate with the wordpress blog. We present a fake-xmlrpc interface on the webadress, which causes ifttt to be fooled into thinking of this as a genuine wordpress blog. The only action that ifttt allows for wordpress are posting, which are instead used for powering webhooks. All the other fields (title, description, categories) along with the username/password credentials are passed along by the webhook. Do not use the "Create a photo post" action for wordpress, as ifttt manually adds a `<img>` tag in the description pointing to what url you pass. Its better to pass the url in clear instead (using body/category/title fields).
