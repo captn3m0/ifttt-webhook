@@ -8,7 +8,7 @@ switch($xml->methodName)
 	case 'metaWeblog.getRecentPosts':
 		//send a blank blog response
 		//this also makes sure that the channel is never triggered
-		output('<array><data></data></array>');
+		success('<array><data></data></array>');
 		break;
 
 	case 'metaWeblog.newPost':
