@@ -14,7 +14,7 @@ A webhook middleware for the ifttt.com service
 ifttt uses wordpress-xmlrpc to communicate with the wordpress blog. We present a fake-xmlrpc interface on the webadress, which causes ifttt to be fooled into thinking of this as a genuine wordpress blog. The only action that ifttt allows for wordpress are posting, which are instead used for powering webhooks. All the other fields (title, description, categories) along with the username/password credentials are passed along by the webhook.
 
 #Why
-There has been a lot of call for a ifttt-webhook. I had asked about it pretty early on, but ifttt has yet to create such a channel. It was fun to build and will allow me to hookup ifttt with things like [partychat][pc], [github](gh) and many other awesome services for which ifttt is yet to build a channel.
+There has been a lot of call for a ifttt-webhook. I had asked about it pretty early on, but ifttt has yet to create such a channel. It was fun to build and will allow me to hookup ifttt with things like [partychat][pc], [github](gh) and many other awesome services for which ifttt is yet to build a channel. You can build a postmarkapp.com like email-to-webhook service using ifttt alone.
 
 #Payload
 The following information is passed along by the webhook in the raw body of the post request in json encoded format.
@@ -37,3 +37,7 @@ The code is licenced under GPL. Some portions of the code are from wordpress its
 
 #Custom Use
 Just clone the git repo to some place, and use that as the wordpress installation location in ifttt.com channel settings.
+
+
+[pc]: http://partychat-hooks.appspot.com/edit/h_njuwmzay "Partychat Hooks"
+[gh]: https://help.github.com/articles/post-receive-hooks/ "Github Post receive hooks"
