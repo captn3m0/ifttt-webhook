@@ -29,15 +29,14 @@ The following information is passed along by the webhook in the raw body of the 
 
 To get the data from the POST request, you can use any of the following:
 
-    $data = file_get_contents('php://input'); #php
+    $data = json_decode(file_get_contents('php://input')); #php
     data = JSON.parse(request.body.read) #ruby-sinatra
 
 #Licence
-The code is licenced under GPL. Some portions of the code are from wordpress itself. You should host this on your own server, instead of using this.
+Licenced under GPL. Some portions of the code are from wordpress itself. You should probably host this on your own server, instead of using `ifttt.captnemo.in`. I recommend using [phpfog](https://phpfog.com/?a_aid=64682331 "My Affiliate Link") for excellent php hosting.
 
 #Custom Use
 Just clone the git repo to some place, and use that as the wordpress installation location in ifttt.com channel settings.
 
-
-[pc]: http://partychat-hooks.appspot.com/edit/h_njuwmzay "Partychat Hooks"
+[pc]: http://partychat-hooks.appspot.com/ "Partychat Hooks"
 [gh]: https://help.github.com/articles/post-receive-hooks/ "Github Post receive hooks"
