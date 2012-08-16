@@ -4,6 +4,11 @@ $xml = simplexml_load_string($request_body);
 
 switch($xml->methodName)
 {
+
+	//wordpress blog verification
+	case 'mt.supportedMethods':
+		success('metaWeblog.getRecentPosts');
+		break;
 	//first authentication request from ifttt
 	case 'metaWeblog.getRecentPosts':
 		//send a blank blog response
