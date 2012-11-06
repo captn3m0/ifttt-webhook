@@ -12,6 +12,8 @@
         
         public function execute($plugin, $object, $raw) {
             
+            __log("Raw JSON string passed: '{$object->description}'");
+            
             $json = json_decode($object->description);
             if (!$json) {
                 __log("Invalid JSON payload '$json'", 'ERROR');
