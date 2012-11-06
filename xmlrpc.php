@@ -79,7 +79,10 @@ switch ($xml->methodName) {
                 if ($processed)
                     $obj = $processed;
                 else
+                {
                     __log("Plugin was invalid");
+                    failure(400);
+                }
             } 
             else
             {
