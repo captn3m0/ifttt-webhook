@@ -55,4 +55,4 @@ Just clone the git repo to some place, and use that as the wordpress installatio
 [gh]: https://help.github.com/articles/post-receive-hooks/ "Github Post receive hooks"
 
 #About this Fork
-This is a modification of the original repo created by Marcus Povey <http://www.marcus-povey.co.uk>
+This is a modification of the original repo <https://github.com/captn3m0/ifttt-webhook> created by Captn3mo, made by Marcus Povey <http://www.marcus-povey.co.uk>.
