@@ -111,6 +111,9 @@ switch ($xml->methodName) {
 
 /** Copied from wordpress */
 function success($innerXML) {
+    
+    __log("Success!");
+    
     $xml = <<<EOD
 <?xml version="1.0"?>
 <methodResponse>
@@ -138,6 +141,9 @@ function output($xml) {
 }
 
 function failure($status) {
+    
+    __log("Failure: $status", 'ERROR');
+    
     $xml = <<<EOD
 <?xml version="1.0"?>
 <methodResponse>
