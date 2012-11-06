@@ -28,12 +28,12 @@
         
         $file = strtolower($plugin);
         
-        if (!file_exists(dirname(__FILE__) . "/$file.php")) {
+        if (!file_exists(dirname(__FILE__) . "/plugins/$file.php")) {
             __log("Plugin file $file.php could not be located");
             return false;
         }
         
-        require_once(dirname(__FILE__) . "/$file.php");
+        require_once(dirname(__FILE__) . "/plugins/$file.php");
         
         $plugin_class = new $plugin();
         
