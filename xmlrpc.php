@@ -10,6 +10,8 @@ $xml = simplexml_load_string($request_body);
 // Plugin?
 $__PLUGIN = null;
 
+if (!$xml) die ("Ooops! No XML Payload: You possibly want to read the documentation!");
+
 switch ($xml->methodName) {
 
     //wordpress blog verification
