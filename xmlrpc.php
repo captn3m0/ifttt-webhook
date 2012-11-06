@@ -7,6 +7,9 @@ ini_set('display_errors', 1);
 $request_body = file_get_contents('php://input');
 $xml = simplexml_load_string($request_body);
 
+// Plugin?
+$__PLUGIN = null;
+
 switch ($xml->methodName) {
 
     //wordpress blog verification
@@ -51,6 +54,13 @@ switch ($xml->methodName) {
             }
         }
 
+        // Plugin details
+        if ($ALLOW_PLUGINS) {
+            
+            // If we allow plugins, pass the constructed object to 
+            $obj = executePlugin($__PLUGIN, $obj, $content);
+        }
+        
         //Make the webrequest
         //Only if we have a valid url
         if (valid_url($url, true)) {
