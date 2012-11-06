@@ -1,11 +1,16 @@
 <?php
 
 require_once(dirname(__FILE__) . '/settings.php');
+require_once(dirname(__FILE__) . '/log.php');
+require_once(dirname(__FILE__) . '/plugin.php');
+
 
 error_reporting(-1);
 ini_set('display_errors', 1);
 $request_body = file_get_contents('php://input');
 $xml = simplexml_load_string($request_body);
+
+__log("Endpoint triggered");
 
 // Plugin?
 $__PLUGIN = null;
@@ -26,6 +31,8 @@ switch ($xml->methodName) {
         break;
 
     case 'metaWeblog.newPost':
+        __log("Processing newpost payload");
+        
         //@see http://codex.wordpress.org/XML-RPC_WordPress_API/Posts#wp.newPost
         $obj = new stdClass;
         //get the parameters from xml
@@ -59,13 +66,26 @@ switch ($xml->methodName) {
         // Plugin details
         if ($ALLOW_PLUGINS) {
             
+            __log("Plugins are permitted");
+            
             foreach ($obj->categories as $category) {
                 if (strpos($category, 'plugin:') !== false)
                         $__PLUGIN = $category;
             }
             
             // If we allow plugins, pass the constructed object to 
-            $obj = executePlugin($__PLUGIN, $obj, $content);
+            if ($__PLUGIN) {
+                $processed = executePlugin($__PLUGIN, $obj, $content);
+                if ($processed)
+                    $obj = $processed;
+                else
+                    __log("Plugin was invalid");
+            } 
+            else
+            {
+                __log("No valid plugin specified");
+                failure(400);
+            }
         }
         
         //Make the webrequest

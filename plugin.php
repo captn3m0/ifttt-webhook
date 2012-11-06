@@ -21,18 +21,29 @@
         if (!$ALLOW_PLUGINS) return $object;
         
         $plugins = explode(':', $plugin);
-        if (!$plugins[0] == 'plugin') return $object;
+        if (!$plugins[0] == 'plugin') return false;
             
         $plugin = trim($plugins[1]);
         $plugin = preg_replace("/[^a-zA-Z0-9\s]/", "", $plugin);
         
         $file = strtolower($plugin);
         
+        if (!file_exists(dirname(__FILE__) . "/$file.php")) {
+            __log("Plugin file $file.php could not be located");
+            return false;
+        }
+        
         require_once(dirname(__FILE__) . "/$file.php");
         
         $plugin_class = new $plugin();
         
-        if ($plugin_class) return $plugin_class->execute ($plugin, $object, $raw);
+        if ($plugin_class) {
+            __log("Plugin $plugin triggered");
+            
+            return $plugin_class->execute ($plugin, $object, $raw);
+        }
+        
+        __log("Plugin is invalid");
         
         return false;
     }
