@@ -1,4 +1,7 @@
 <?php
+
+    require_once(dirname(__FILE__) . '/settings.php');
+
 error_reporting(-1);
 ini_set('display_errors',1);
 $request_body = file_get_contents('php://input');
