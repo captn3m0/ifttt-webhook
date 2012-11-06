@@ -1,5 +1,8 @@
 <?php
 
+    /**
+     * Example webhook format plugin.
+     */
     class TestPlugin extends Plugin {
         
         public function execute($plugin, $object, $raw) {
