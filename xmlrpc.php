@@ -10,7 +10,7 @@ $xml = simplexml_load_string($request_body);
 // Plugin?
 $__PLUGIN = null;
 
-if (!$xml) die ("Ooops! No XML Payload: You possibly want to read the documentation!");
+if (!$xml) die ("Ooops! No XML Payload: You possibly want to <a href=\"index.php\">read the documentation!</a>");
 
 switch ($xml->methodName) {
 
