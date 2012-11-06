@@ -57,6 +57,11 @@ switch ($xml->methodName) {
         // Plugin details
         if ($ALLOW_PLUGINS) {
             
+            foreach ($obj->categories as $category) {
+                if (strpos($category, 'plugin:') !== false)
+                        $__PLUGIN = $category;
+            }
+            
             // If we allow plugins, pass the constructed object to 
             $obj = executePlugin($__PLUGIN, $obj, $content);
         }

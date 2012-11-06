@@ -21,6 +21,8 @@
         if (!$ALLOW_PLUGINS) return $object;
         
         $plugins = explode(':', $plugin);
+        if (!$plugins[0] == 'plugin') return $object;
+            
         $plugin = trim($plugins[1]);
         $plugin = preg_replace("/[^a-zA-Z0-9\s]/", "", $plugin);
         
