@@ -12,9 +12,9 @@
         
         public function execute($plugin, $object, $raw) {
             
-            $json = json_decode($object->body);
+            $json = json_decode($object->description);
             if (!$json) {
-                __log("Invalid JSON payload", 'ERROR');
+                __log("Invalid JSON payload '$json'", 'ERROR');
                 return false;
             }
             
