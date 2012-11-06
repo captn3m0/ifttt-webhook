@@ -16,6 +16,13 @@ Any username/password combination will be accepted, and passed through to the we
 
 Make sure that the url you specify accepts POST requests. The url is only picked up from the tags field, and all other fields are passed through to the webhook url.
 
+Plugin support
+--------------
+
+This fork supports plugins that allow protocol specific modification of the sent webhook payload in order to match whatever format the endpoint wants.
+
+To do this specify a **plugin:xxxx** category, where **xxxx** is the name of the class (extending "Plugin") and also the name of the .php file in the plugins directory. See the plugins/testplugin.php file for example.
+
 #How It Works
 ifttt uses wordpress-xmlrpc to communicate with the wordpress blog. We present a fake-xmlrpc interface on the webadress, which causes ifttt to be fooled into thinking of this as a genuine wordpress blog. The only action that ifttt allows for wordpress are posting, which are instead used for powering webhooks. All the other fields (title, description, categories) along with the username/password credentials are passed along by the webhook. Do not use the "Create a photo post" action for wordpress, as ifttt manually adds a `<img>` tag in the description pointing to what url you pass. Its better to pass the url in clear instead (using body/category/title fields).
 
@@ -46,3 +53,6 @@ Just clone the git repo to some place, and use that as the wordpress installatio
 
 [pc]: http://partychat-hooks.appspot.com/ "Partychat Hooks"
 [gh]: https://help.github.com/articles/post-receive-hooks/ "Github Post receive hooks"
+
+#About this Fork
+This is a modification of the original repo created by Marcus Povey <http://www.marcus-povey.co.uk>
