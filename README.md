@@ -45,6 +45,10 @@ To get the data from the POST request, you can use any of the following:
     $data = json_decode(file_get_contents('php://input')); #php
     data = JSON.parse(request.body.read) #ruby-sinatra
 
+Testing
+-------
+GitHub has a handy guide for testing webhooks than you might find useful: https://help.github.com/articles/testing-webhooks
+
 #Licence
 Licenced under GPL. Some portions of the code are from wordpress itself. You should probably host this on your own server, instead of using `ifttt.captnemo.in`. I recommend using [phpfog](https://phpfog.com/?a_aid=64682331 "My Affiliate Link") for excellent php hosting.
 
