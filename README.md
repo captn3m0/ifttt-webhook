@@ -14,13 +14,13 @@ Any username/password combination will be accepted, and passed through to the we
 
 ![Screenshot of a channel](http://i.imgur.com/5FaU1.png "Sample Channel for use as a webhook")
 
-Make sure that the url you specify accepts POST requests. The url is only picked up from the tags field, and all other fields are passed through to the webhook url.
+Make sure that the url you specify accepts POST requests. The url is only picked up from the tags field, and all other fields are passed through to the webhook url. The post status should ideally be set to "Publish Immediately", but anything else should work as well.
 
 #How It Works
 ifttt uses wordpress-xmlrpc to communicate with the wordpress blog. We present a fake-xmlrpc interface on the webadress, which causes ifttt to be fooled into thinking of this as a genuine wordpress blog. The only action that ifttt allows for wordpress are posting, which are instead used for powering webhooks. All the other fields (title, description, categories) along with the username/password credentials are passed along by the webhook. Do not use the "Create a photo post" action for wordpress, as ifttt manually adds a `<img>` tag in the description pointing to what url you pass. Its better to pass the url in clear instead (using body/category/title fields).
 
 #Why
-There has been a lot of [call](http://blog.jazzychad.net/2012/08/05/ifttt-needs-webhooks-stat.html) for a ifttt-webhook. I had asked about it pretty early on, but ifttt has yet to create such a channel. It was fun to build and will allow me to hookup ifttt with things like [partychat][pc], [github](gh) and many other awesome services for which ifttt is yet to build a channel. You can build a postmarkapp.com like email-to-webhook service using ifttt alone. Wordpress seems to be the only channel on ifttt that supports custom domains, and hence can be used as a middleware.
+There has been a lot of [call](http://blog.jazzychad.net/2012/08/05/ifttt-needs-webhooks-stat.html) for a ifttt-webhook. I had asked about it pretty early on, but ifttt has yet to create such a channel. It was fun to build and will allow me to hookup ifttt with things like [partychat][pc], [github](gh) and many other awesome services for which ifttt is yet to build a channel. You can build a postmarkapp.com like email-to-webhook service using ifttt alone. Wordpress seems to be the only channel on ifttt that supports custom domains, and hence can be used as a middleware. The ifttt-webhook also propogates errors on connecting to the webhook back to ifttt. This means that an Internal Server Error will be recognized as an error by ifttt, and reported as such. You won't be getting any debug information from this side (ifttt doesn't show that in logs), so debug on your webhook side by proper logging.
 
 #Payload
 The following information is passed along by the webhook in the raw body of the post request in json encoded format.
