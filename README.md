@@ -46,3 +46,9 @@ Just clone the git repo to some place, and use that as the wordpress installatio
 
 [pc]: http://partychat-hooks.appspot.com/ "Partychat Hooks"
 [gh]: https://help.github.com/articles/post-receive-hooks/ "Github Post receive hooks"
+
+#Tip
+I make the world better my creating software. You can help me do it better.
+<iframe style="border: 0; margin: 0; padding: 0;"
+        src="https://www.gittip.com/captn3m0/widget.html"
+        width="48pt" height="22pt"></iframe>
