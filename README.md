@@ -4,7 +4,7 @@ ifttt-webhook
 A webhook middleware for the ifttt.com service
 
 #How To Use
-1. Change your ifttt.com wordpress server to <http://ifttt-captnemo.aws.af.cm>.
+1. Change your ifttt.com wordpress server to <http://ifttt.captnemo.in>.
 2. You can use any username/password combination you want. ifttt will accept the authentication irrespective of what details you enter here. These details will be passed along by the webhook as well, so that you may use these as your authentication medium, perhaps.
 3. Create a recipe in ifttt which would post to your "wordpress channel". In the "Tags" field, use the webhook url that you want to use.
 
@@ -39,7 +39,7 @@ To get the data from the POST request, you can use any of the following:
     data = JSON.parse(request.body.read) #ruby-sinatra
 
 #Licence
-Licenced under GPL. Some portions of the code are from wordpress itself. You should probably host this on your own server, instead of using `ifttt-captnemo.aws.af.cm`. I recommend using [appfog](https://appfog.com/) for excellent php hosting.
+Licenced under GPL. Some portions of the code are from wordpress itself. You should probably host this on your own server, instead of using `ifttt.captnemoin`. I recommend using [Heroku](http://heroku.com) for excellent php hosting. ([Heroku does supports PHP](http://stackoverflow.com/questions/13334052/does-heroku-support-php))
 
 #Custom Use
 Just clone the git repo to some place, and use that as the wordpress installation location in ifttt.com channel settings.
