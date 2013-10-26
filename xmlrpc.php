@@ -31,10 +31,9 @@ switch($xml->methodName)
 		{
 			switch((string)$data->name)
 			{
-				//we use the tags field for providing webhook URL
-				case 'mt_keywords':
-					$url = $data->xpath('value/array/data/value/string');
-					$url = (string)$url[0];
+				//neglect these sections of the request
+				case 'post_status' ://publish status
+				case 'mt_keywords': //tags
 					break;
 
 				//the passed categories are parsed into an array
@@ -44,8 +43,11 @@ switch($xml->methodName)
 						array_push($categories,(string)$cat);
 					$obj->categories = $categories;
 					break;
-
-				//this is used for title/description
+				
+				case 'description':
+					$url = (string)$data->value->string;
+					break;
+				//this is used for title
 				default:
 					$obj->{$data->name} = (string)$data->value->string;
 			}
