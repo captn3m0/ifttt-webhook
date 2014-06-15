@@ -6,7 +6,7 @@ A webhook middleware for the ifttt.com service
 #How To Use
 1. Change your ifttt.com wordpress server to <http://ifttt.captnemo.in>.
 2. You can use any username/password combination you want. ifttt will accept the authentication irrespective of what details you enter here. These details will be passed along by the webhook as well, so that you may use these as your authentication medium, perhaps.
-3. Create a recipe in ifttt which would post to your "wordpress channel". In the "Tags" field, use the webhook url that you want to use.
+3. Create a recipe in ifttt which would post to your "wordpress channel". In the "Body" field, use the webhook url that you want to use.
 
 ![Connecting to ifttt-webhook](http://i.imgur.com/RA0Jb.png "You can type in any username/password you want")
 
