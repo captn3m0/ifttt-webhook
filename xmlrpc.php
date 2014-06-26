@@ -93,23 +93,27 @@ switch ($xml->methodName) {
         
         //Make the webrequest
         //Only if we have a valid url
-        if (valid_url($url, true)) {
-            // Load Requests Library
-            include('requests/Requests.php');
-            Requests::register_autoloader();
+        if ($url)
+	{
+		if (valid_url($url, true)) {
+		    // Load Requests Library
+	            include('requests/Requests.php');
+	            Requests::register_autoloader();
 
-            $headers = array('Content-Type' => 'application/json');
-            $response = Requests::post($url, $headers, json_encode($obj));
+	            $headers = array('Content-Type' => 'application/json');
+	            $response = Requests::post($url, $headers, json_encode($obj));
 
-            if ($response->success)
-                success('<string>' . $response->status_code . '</string>');
-            else
-                failure($response->status_code);
-        }
-        else {
-            //since the url was invalid, we return 400 (Bad Request)
-            failure(400);
-        }
+	            if ($response->success)
+	                success('<string>' . $response->status_code . '</string>');
+	            else
+	                failure($response->status_code);
+	        }
+	        else {
+        	    //since the url was invalid, we return 400 (Bad Request)
+	            failure(400);
+        	}
+	} else
+		success('<string>No forward url, but will assume data was handled locally</string>');
 }
 
 /** Copied from wordpress */
