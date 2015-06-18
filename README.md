@@ -3,6 +3,9 @@ ifttt-webhook
 
 A webhook middleware for the ifttt.com service
 
+#Official IFTTT Webhook: Maker Channel
+There is now an official channel for IFTTT that supports webhooks (as actions and triggers). You can find it here: [Maker Channel](https://ifttt.com/maker).
+
 #How To Use
 1. Change your ifttt.com wordpress server to <http://ifttt.captnemo.in>.
 2. You can use any username/password combination you want. ifttt will accept the authentication irrespective of what details you enter here. These details will be passed along by the webhook as well, so that you may use these as your authentication medium, perhaps.
