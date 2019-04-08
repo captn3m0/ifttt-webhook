@@ -55,4 +55,4 @@ Just clone the git repo to some place, and use that as the wordpress installatio
 
 [pc]: http://partychat-hooks.appspot.com/ "Partychat Hooks"
 [gh]: https://help.github.com/articles/post-receive-hooks/ "Github Post receive hooks"
-[rb]: http://requestb.in/
+[rb]: https://requestbin.com/
